@@ -58,7 +58,7 @@ jobs:
           terraform_version: '1.11.2'
 
       - name: Terraform Init
-        working-directory: path/to/terraform
+        working-directory: ${{ github.workspace }}/environment/${{ inputs.environment }}
         run: terraform init
 
       - name: Terraform Validate
