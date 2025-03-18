@@ -7,7 +7,7 @@
 
   jobs:
     deploy_dev:
-      uses: ./github/workflows/vnet_deployment.yml@master
+      uses: ./github/workflow-templates/vnet_deployment.yml@master
       with:
         environment: 'dev'
         resource_group_name: 'RG_OLLAMA_DEV_VNET'
@@ -18,7 +18,7 @@
 
     deploy_prod:
       needs: deploy_dev
-      uses: ./github/workflows/vnet_deployment.yml@master
+      uses: ./github/workflow-templates/vnet_deployment.yml@master
       with:
         environment: 'prod'
         resource_group_name: 'RG_OLLAMA_PROD_VNET'
