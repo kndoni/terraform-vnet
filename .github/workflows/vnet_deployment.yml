@@ -54,8 +54,8 @@ jobs:
 
       - name: Set Azure CLI Config Directory
         run: |
-          mkdir -p $HOME/.azure
-          export AZURE_CONFIG_DIR=$HOME/.azure
+          mkdir -p $GITHUB_WORKSPACE/.azure
+          export AZURE_CONFIG_DIR=$GITHUB_WORKSPACE/.azure
 
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v1
