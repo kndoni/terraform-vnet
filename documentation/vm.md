@@ -41,3 +41,105 @@ No modules.
 |------|-------------|
 | <a name="output_private_nic"></a> [private\_nic](#output\_private\_nic) | n/a |
 | <a name="output_public_nic"></a> [public\_nic](#output\_public\_nic) | n/a |
+## Requirements
+
+No requirements.
+
+## Providers
+
+The following providers are used by this module:
+
+- <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm)
+
+## Modules
+
+No modules.
+
+## Resources
+
+The following resources are used by this module:
+
+- [azurerm_linux_virtual_machine.private_vm](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine) (resource)
+- [azurerm_linux_virtual_machine.public_vm](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine) (resource)
+- [azurerm_network_interface.private_nic](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface) (resource)
+- [azurerm_network_interface.public_nic](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface) (resource)
+- [azurerm_public_ip.public_ip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip) (resource)
+
+## Required Inputs
+
+The following input variables are required:
+
+### <a name="input_environment"></a> [environment](#input\_environment)
+
+Description: The deployment environment (e.g., dev, prod, staging).
+
+Type: `string`
+
+### <a name="input_location"></a> [location](#input\_location)
+
+Description: The Azure region (e.g., eastus, westeurope) where resources will be deployed.
+
+Type: `string`
+
+### <a name="input_private_vm_size"></a> [private\_vm\_size](#input\_private\_vm\_size)
+
+Description: The size (SKU) of the private virtual machine.
+
+Type: `string`
+
+### <a name="input_public_key_path"></a> [public\_key\_path](#input\_public\_key\_path)
+
+Description: The file path for the SSH public key used for admin access to the VMs.
+
+Type: `string`
+
+### <a name="input_public_vm_size"></a> [public\_vm\_size](#input\_public\_vm\_size)
+
+Description: The size (SKU) of the public virtual machine.
+
+Type: `string`
+
+### <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name)
+
+Description: The name of the Azure resource group to deploy resources into.
+
+Type: `string`
+
+### <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id)
+
+Description: The subnet ID where the VM network interface will be attached.
+
+Type: `map(string)`
+
+## Optional Inputs
+
+The following input variables are optional (have default values):
+
+### <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags)
+
+Description: A map of tags to assign to resources
+
+Type: `map(string)`
+
+Default:
+
+```json
+{
+  "Environment": "",
+  "Owner": "kristindoni",
+  "Project": "Ollama",
+  "Region": "westeurope"
+}
+```
+
+## Outputs
+
+The following outputs are exported:
+
+### <a name="output_private_nic"></a> [private\_nic](#output\_private\_nic)
+
+Description: n/a
+
+### <a name="output_public_nic"></a> [public\_nic](#output\_public\_nic)
+
+Description: n/a
