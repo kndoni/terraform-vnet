@@ -57,10 +57,6 @@ jobs:
         working-directory: environment/${{ inputs.environment }}
         run: terraform init
 
-      - name: echo working directory
-        working-directory: environment/${{ inputs.environment }}
-        run: ls -ll
-
       - name: Terraform Validate
         working-directory: environment/${{ inputs.environment }}
         run: terraform validate

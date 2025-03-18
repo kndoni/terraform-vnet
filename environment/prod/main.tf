@@ -74,5 +74,6 @@ module "lb" {
   location            = module.prod_vnet_1.location
   nic                 = module.prod_compute.public_nic
   virtual_network_id  = module.prod_vnet_1.virtual_network_id
-  resource_tags = var.resource_tags
+  resource_tags       = var.resource_tags
+  sku                 = var.sku
 }

@@ -11,7 +11,7 @@ resource "azurerm_lb" "lb" {
   name                = "${var.environment}-lb"
   resource_group_name = var.resource_group_name
   location            = var.location
-
+  sku                 = var.sku
   # attaching public ip to frontend
   frontend_ip_configuration {
     name                 = "${var.environment}-fip-config"

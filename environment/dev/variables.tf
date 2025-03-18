@@ -30,6 +30,9 @@ variable "subnets" {
     address_prefixes = string
   }))
 }
+variable "sku" {
+  type = string
+}
 
 variable "public_vm_size" {
   description = "VM size for public subnet"

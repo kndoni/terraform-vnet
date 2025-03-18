@@ -33,3 +33,7 @@ variable "resource_tags" {
     Project     = "Ollama"
   }
 }
+
+variable "sku" {
+  type = string
+}

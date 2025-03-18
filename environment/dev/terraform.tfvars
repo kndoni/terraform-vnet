@@ -16,3 +16,4 @@ subnets = {
 public_vm_size  = "Standard_DS1_v2"
 private_vm_size = "Standard_DS1_v2"
 nsg_name        = "nsg1"
+sku             = "Standard"
