@@ -1,0 +1,9 @@
+# Ignore .terraform directories and .tfstate files within environment/dev and environment/prod
+environment/dev/.terraform/
+environment/prod/.terraform/
+environment/dev/*.tfstate
+environment/prod/*.tfstate
+
+# Optionally, ignore .tfvars files within these environments
+environment/dev/*.tfvars
+environment/prod/*.tfvars

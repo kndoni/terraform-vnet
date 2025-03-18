@@ -1,0 +1,28 @@
+  name: Deploy to Azure
+
+  on:
+    push:
+      branches:
+        - main
+
+  jobs:
+    deploy_dev:
+      uses: your-org/central-repo/.github/workflows/azure_deployment.yml@main
+      with:
+        environment: 'dev'
+        resource_group_name: 'your-dev-rg'
+        location: 'East US'
+        client_id: ${{ secrets.AZURE_CLIENT_ID }}
+        client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+        tenant_id: ${{ secrets.AZURE_TENANT_ID }}
+
+    deploy_prod:
+      needs: deploy_dev
+      uses: your-org/central-repo/.github/workflows/azure_deployment.yml@main
+      with:
+        environment: 'prod'
+        resource_group_name: 'your-prod-rg'
+        location: 'West US'
+        client_id: ${{ secrets.AZURE_CLIENT_ID }}
+        client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+        tenant_id: ${{ secrets.AZURE_TENANT_ID }}

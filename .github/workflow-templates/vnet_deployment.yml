@@ -1,0 +1,44 @@
+  name: Azure Deployment
+
+  on:
+    workflow_call:
+      inputs:
+        environment:
+          description: 'Deployment environment (dev or prod)'
+          required: true
+        resource_group_name:
+          description: 'Azure Resource Group Name'
+          required: true
+        location:
+          description: 'Azure Region'
+          required: true
+        client_id:
+          description: 'Azure Service Principal Client ID'
+          required: true
+        client_secret:
+          description: 'Azure Service Principal Client Secret'
+          required: true
+        tenant_id:
+          description: 'Azure Tenant ID'
+          required: true
+
+  jobs:
+    deploy:
+      runs-on: ubuntu-latest
+      environment: ${{ inputs.environment }}
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Set up Azure CLI
+          uses: azure/setup-azurecli@v1
+
+        - name: Azure Login
+          run: |
+            az login --service-principal -u ${{ inputs.client_id }} -p ${{ inputs.client_secret }} --tenant ${{ inputs.tenant_id }}
+            az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+        - name: Deploy Azure Resources
+          run: |
+            # Add your deployment commands here, e.g., using Terraform or ARM templates
+            echo "Deploying resources to ${{ inputs.resource_group_name }} in ${{ inputs.location }} environment"
