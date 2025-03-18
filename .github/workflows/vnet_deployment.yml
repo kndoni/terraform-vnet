@@ -61,6 +61,9 @@ jobs:
         working-directory: ${{ github.workspace }}/environment/${{ inputs.environment }}
         run: terraform validate
 
+      - name: echo working directory
+        run: echo "${{ github.workspace }}/environment/${{ inputs.environment }}"
+
       - name: Terraform Plan
         working-directory: ${{ github.workspace }}/environment/${{ inputs.environment }}
         run: terraform plan -out=tfplan -var-file=terraform.tfvars
