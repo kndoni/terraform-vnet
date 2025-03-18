@@ -48,7 +48,9 @@ jobs:
       - name: Setup Environment
         run: |
           mkdir -p $GITHUB_WORKSPACE/.azure
-          chmod 700 $GITHUB_WORKSPACE/.azure
+          echo "AZURE_CONFIG_DIR=$GITHUB_WORKSPACE/.azure" >> $GITHUB_ENV
+          sudo chown -R runner:runner $GITHUB_WORKSPACE/.azure
+          sudo chmod -R 700 $GITHUB_WORKSPACE/.azure
 
       - name: Set up Azure CLI
         uses: azure/cli@v1.0.9
@@ -66,6 +68,11 @@ jobs:
 
       - name: Terraform Init
         working-directory: ${{ github.workspace }}/environment/${{ inputs.environment }}
+        env:
+          ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+          ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+          ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+          ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         run: terraform init
 
       - name: Terraform Validate
