@@ -49,15 +49,10 @@ jobs:
         uses: azure/cli@v1.0.9
         with:
           inlineScript: |
+            mkdir -p $AZURE_CONFIG_DIR
+            echo '{"servicePrincipalKey": "${{ secrets.AZURE_CLIENT_SECRET }}"}' > $AZURE_CONFIG_DIR/service_principal_entries.json
             az login --service-principal --username ${{ secrets.AZURE_CLIENT_ID }} --password ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
             az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      - name: Set Azure CLI Config Directory
-        run: |
-          mkdir -p $GITHUB_WORKSPACE/.azure
-          export AZURE_CONFIG_DIR=$GITHUB_WORKSPACE/.azure
-          chmod 600 /home/runner/.azure/service_principal_entries.json
-          chmod 700 /home/runner/.azure
 
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v1
