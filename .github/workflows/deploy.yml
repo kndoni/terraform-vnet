@@ -26,9 +26,9 @@
         environment: 'prod'
         resource_group_name: 'RG_OLLAMA_PROD_VNET'
         location: 'West Europe'
-        client_id: ${{ secrets.AZURE_CLIENT_ID }}
-        client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-        tenant_id: ${{ secrets.AZURE_TENANT_ID }}
       secrets:
         AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+        AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 
