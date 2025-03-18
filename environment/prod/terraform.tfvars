@@ -1,6 +1,6 @@
 environment         = "prod"
 resource_group_name = "RG_OLLAMA_PROD_VNET"
-location            = "West Europe"
+location            = "East Europe"
 vnet_name           = "virtual_network1"
 vnet_address_prefix = "198.128.0.0/16"
 subnets = {
