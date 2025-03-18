@@ -1,4 +1,3 @@
-<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 No requirements.
@@ -33,6 +32,7 @@ No modules.
 | <a name="input_public_key_path"></a> [public\_key\_path](#input\_public\_key\_path) | The file path for the SSH public key used for admin access to the VMs. | `string` | n/a | yes |
 | <a name="input_public_vm_size"></a> [public\_vm\_size](#input\_public\_vm\_size) | The size (SKU) of the public virtual machine. | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the Azure resource group to deploy resources into. | `string` | n/a | yes |
+| <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | A map of tags to assign to resources | `map(string)` | <pre>{<br/>  "Environment": "",<br/>  "Owner": "kristindoni",<br/>  "Project": "Ollama",<br/>  "Region": "westeurope"<br/>}</pre> | no |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | The subnet ID where the VM network interface will be attached. | `map(string)` | n/a | yes |
 
 ## Outputs
@@ -41,4 +41,3 @@ No modules.
 |------|-------------|
 | <a name="output_private_nic"></a> [private\_nic](#output\_private\_nic) | n/a |
 | <a name="output_public_nic"></a> [public\_nic](#output\_public\_nic) | n/a |
-<!-- END_TF_DOCS -->

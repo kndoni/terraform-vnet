@@ -1,4 +1,3 @@
-<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 No requirements.
@@ -28,9 +27,9 @@ No modules.
 | <a name="input_nsg_name"></a> [nsg\_name](#input\_nsg\_name) | The name of the Network Security Group (NSG). | `string` | n/a | yes |
 | <a name="input_nsg_rules"></a> [nsg\_rules](#input\_nsg\_rules) | A list of NSG rules. Each rule must define a name, priority, direction, access, protocol, source/destination port range, and source/destination address prefix. | <pre>list(object({<br/>    name                       = string<br/>    priority                   = number<br/>    direction                  = string<br/>    access                     = string<br/>    protocol                   = string<br/>    source_port_range          = string<br/>    destination_port_range     = string<br/>    source_address_prefix      = string<br/>    destination_address_prefix = string<br/>  }))</pre> | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of the Azure resource group where the NSG will be deployed. | `string` | n/a | yes |
+| <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | A map of tags to assign to resources | `map(string)` | <pre>{<br/>  "Environment": "",<br/>  "Owner": "kristindoni",<br/>  "Project": "Ollama",<br/>  "Region": "westeurope"<br/>}</pre> | no |
 | <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | The ID of the subnet to which the NSG will be associated. | `map(string)` | n/a | yes |
 
 ## Outputs
 
 No outputs.
-<!-- END_TF_DOCS -->
