@@ -32,6 +32,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Check Azure Client ID
+        run: echo "AZURE_CLIENT_ID is set"
+
       - name: Set up Azure CLI
         uses: azure/cli@v1.0.9
         with:
