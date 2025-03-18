@@ -55,7 +55,7 @@ jobs:
 
       - name: Terraform Init
         working-directory: environment/${{ inputs.environment }}
-        run: terraform init
+        run: terraform init -upgrade -reconfigure
 
       - name: Terraform Validate
         working-directory: environment/${{ inputs.environment }}
