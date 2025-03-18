@@ -38,7 +38,19 @@
             az login --service-principal -u ${{ inputs.client_id }} -p ${{ inputs.client_secret }} --tenant ${{ inputs.tenant_id }}
             az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-        - name: Deploy Azure Resources
-          run: |
-            # Add your deployment commands here, e.g., using Terraform or ARM templates
-            echo "Deploying resources to ${{ inputs.resource_group_name }} in ${{ inputs.location }} environment"
+        - name: Install Terraform
+          uses: hashicorp/setup-terraform@v1
+          with:
+            terraform_version: '1.11.2'
+
+        - name: Terraform Init
+          run: terraform init
+
+        - name: Terraform Validate
+          run: terraform validate
+
+        - name: Terraform Plan
+          run: terraform plan -out=tfplan
+
+        - name: Terraform Apply
+          run: terraform apply -auto-approve tfplan

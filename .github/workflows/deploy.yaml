@@ -7,22 +7,22 @@
 
   jobs:
     deploy_dev:
-      uses: your-org/central-repo/.github/workflows/azure_deployment.yml@main
+      uses: https://github.com/kndoni/terraform-vnet/.github/workflows/vnet_deployment.yml@main
       with:
         environment: 'dev'
-        resource_group_name: 'your-dev-rg'
-        location: 'East US'
+        resource_group_name: 'RG_OLLAMA_DEV_VNET'
+        location: 'West Europe'
         client_id: ${{ secrets.AZURE_CLIENT_ID }}
         client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
         tenant_id: ${{ secrets.AZURE_TENANT_ID }}
 
     deploy_prod:
       needs: deploy_dev
-      uses: your-org/central-repo/.github/workflows/azure_deployment.yml@main
+      uses: https://github.com/kndoni/terraform-vnet/.github/workflows/vnet_deployment.yml@main
       with:
         environment: 'prod'
-        resource_group_name: 'your-prod-rg'
-        location: 'West US'
+        resource_group_name: 'RG_OLLAMA_PROD_VNET'
+        location: 'West Europe'
         client_id: ${{ secrets.AZURE_CLIENT_ID }}
         client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
         tenant_id: ${{ secrets.AZURE_TENANT_ID }}
