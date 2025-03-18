@@ -56,6 +56,8 @@ jobs:
         run: |
           mkdir -p $GITHUB_WORKSPACE/.azure
           export AZURE_CONFIG_DIR=$GITHUB_WORKSPACE/.azure
+          chmod 600 /home/runner/.azure/service_principal_entries.json
+          chmod 700 /home/runner/.azure
 
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v1
