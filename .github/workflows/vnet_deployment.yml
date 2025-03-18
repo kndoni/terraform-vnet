@@ -12,6 +12,7 @@
         location:
           description: 'Azure Region'
           required: true
+      secrets:
         client_id:
           description: 'Azure Service Principal Client ID'
           required: true

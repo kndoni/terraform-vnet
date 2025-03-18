@@ -13,6 +13,7 @@
         environment: 'dev'
         resource_group_name: 'RG_OLLAMA_DEV_VNET'
         location: 'West Europe'
+      secrets:
         client_id: ${{ secrets.AZURE_CLIENT_ID }}
         client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
         tenant_id: ${{ secrets.AZURE_TENANT_ID }}
@@ -24,6 +25,7 @@
         environment: 'prod'
         resource_group_name: 'RG_OLLAMA_PROD_VNET'
         location: 'West Europe'
+      secrets:
         client_id: ${{ secrets.AZURE_CLIENT_ID }}
         client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
         tenant_id: ${{ secrets.AZURE_TENANT_ID }}
