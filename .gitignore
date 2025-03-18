@@ -5,5 +5,5 @@ environment/dev/*.tfstate
 environment/prod/*.tfstate
 
 # Optionally, ignore .tfvars files within these environments
-environment/dev/*.tfvars
-environment/prod/*.tfvars
+#environment/dev/*.tfvars
+#environment/prod/*.tfvars
