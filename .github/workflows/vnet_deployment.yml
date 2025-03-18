@@ -67,4 +67,4 @@ jobs:
 
       - name: Terraform Apply
         working-directory: environment/${{ inputs.environment }}
-        run: terraform apply -auto-approve tfplan
+        run: terraform apply -auto-approve tfplan -lock=false
