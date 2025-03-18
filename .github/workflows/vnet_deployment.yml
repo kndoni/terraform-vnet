@@ -57,6 +57,9 @@ jobs:
         working-directory: environment/${{ inputs.environment }}
         run: terraform init
 
+      - name: echo working directory
+        run: environment/${{ inputs.environment }}"
+
       - name: Terraform Validate
         working-directory: environment/${{ inputs.environment }}
         run: terraform validate
